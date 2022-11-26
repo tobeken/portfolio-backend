@@ -80,4 +80,21 @@ router.post("/register", async (req, res) => {
     }
   });
 
+
+ router.post("/update", async(req,res) => {
+  try{
+    await User.findOneAndUpdate({_id:req.body._id},req.body)
+    const user = await User.findOne({_id:req.body._id})
+    res.send({
+      user,
+      success:true,
+      message:"updating profile successfully"
+  })
+    
+
+  }catch(error){
+    res.status(400).send({message:"Error updating user",success:false,error})
+  }
+ })
+
 module.exports = router;
