@@ -16,7 +16,7 @@ const jobSchema = new mongoose.Schema({
     phoneNumber: {type:String,required:true},
     companyDescription:{type:String,required:true},
     appliedCandidates: {type:[],required:true},
-    postedBy: {type: String, required: true},
+    postedBy: {type: String, required: false},
 },{
     timestamps:true,
 })
